@@ -39,50 +39,105 @@ export default async function BlogPostPage({ params }: PageProps) {
     .filter((p) => p.id !== post.id)
     .slice(0, 3);
 
-  // Simple parser to render basic markdown structures in the article body
+  // Block-aware markdown parser for formatted, clean text rendering
   const renderContent = (content: string) => {
-    return content.split("\n").map((line, index) => {
+    const lines = content.split("\n");
+    const elements: React.ReactNode[] = [];
+    let currentList: { type: "ul" | "ol"; items: string[] } | null = null;
+
+    const parseFormattedText = (text: string) => {
+      const parts = text.split(/(\*\*.*?\*\*)/g);
+      return parts.map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return (
+            <strong key={i} className="font-bold text-brand-primary-dark">
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+        return part;
+      });
+    };
+
+    const flushList = (keyPrefix: number) => {
+      if (!currentList) return;
+      if (currentList.type === "ul") {
+        elements.push(
+          <ul key={`ul-${keyPrefix}`} className="list-disc pl-6 mb-6 space-y-2 text-text-secondary text-base sm:text-lg">
+            {currentList.items.map((item, i) => (
+              <li key={i}>{parseFormattedText(item)}</li>
+            ))}
+          </ul>
+        );
+      } else if (currentList.type === "ol") {
+        elements.push(
+          <ol key={`ol-${keyPrefix}`} className="list-decimal pl-6 mb-6 space-y-2 text-text-secondary text-base sm:text-lg">
+            {currentList.items.map((item, i) => (
+              <li key={i}>{parseFormattedText(item)}</li>
+            ))}
+          </ol>
+        );
+      }
+      currentList = null;
+    };
+
+    lines.forEach((line, index) => {
       const trimmed = line.trim();
-      if (!trimmed) return null;
+      if (!trimmed) {
+        flushList(index);
+        return;
+      }
 
       if (trimmed.startsWith("###")) {
-        return (
+        flushList(index);
+        elements.push(
           <h3 key={index} className="text-xl sm:text-2xl font-bold text-brand-primary-dark mt-8 mb-4">
-            {trimmed.replace("###", "").trim()}
+            {parseFormattedText(trimmed.replace("###", "").trim())}
           </h3>
         );
+        return;
       }
 
       if (trimmed.startsWith("##")) {
-        return (
+        flushList(index);
+        elements.push(
           <h2 key={index} className="text-2xl sm:text-3xl font-bold text-brand-primary-dark mt-10 mb-4">
-            {trimmed.replace("##", "").trim()}
+            {parseFormattedText(trimmed.replace("##", "").trim())}
           </h2>
         );
+        return;
       }
 
       if (trimmed.startsWith("*") || trimmed.startsWith("-")) {
-        return (
-          <li key={index} className="ml-6 list-disc text-text-secondary mb-2 text-base sm:text-lg">
-            {trimmed.substring(1).trim()}
-          </li>
-        );
+        const itemContent = trimmed.replace(/^[\*\-]\s*/, "").trim();
+        if (!currentList || currentList.type !== "ul") {
+          flushList(index);
+          currentList = { type: "ul", items: [] };
+        }
+        currentList.items.push(itemContent);
+        return;
       }
 
       if (/^\d+\./.test(trimmed)) {
-        return (
-          <li key={index} className="ml-6 list-decimal text-text-secondary mb-2 text-base sm:text-lg">
-            {trimmed.replace(/^\d+\./, "").trim()}
-          </li>
-        );
+        const itemContent = trimmed.replace(/^\d+\.\s*/, "").trim();
+        if (!currentList || currentList.type !== "ol") {
+          flushList(index);
+          currentList = { type: "ol", items: [] };
+        }
+        currentList.items.push(itemContent);
+        return;
       }
 
-      return (
+      flushList(index);
+      elements.push(
         <p key={index} className="text-text-secondary leading-relaxed mb-6 text-base sm:text-lg">
-          {trimmed}
+          {parseFormattedText(trimmed)}
         </p>
       );
     });
+
+    flushList(lines.length);
+    return elements;
   };
 
   return (
