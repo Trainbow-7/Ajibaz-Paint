@@ -250,4 +250,120 @@ Choosing the right finish ensures your beautiful new colour stays looking its be
     image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&q=80&w=800",
     slug: "matte-vs-gloss-finish-guide",
   },
+  {
+    id: "post-7",
+    title: "The Rise of Eco-Friendly Paints in Nigeria",
+    excerpt: "Health and environment are taking center stage. Discover why low-VOC and lead-free eco-friendly paints are becoming the preferred choice for Nigerian homes.",
+    content: `
+With growing awareness of health and environmental issues, the paint industry in Nigeria is undergoing a significant transformation. Traditional paints often contain high levels of Volatile Organic Compounds (VOCs) and, in some older formulations, lead. Today, eco-friendly paints are rising in popularity. Here is why you should consider making the switch.
+
+### 1. What are VOCs and Why Do They Matter?
+Volatile Organic Compounds are chemicals that easily vaporize at room temperature. They are responsible for the strong, chemical smell of fresh paint. VOCs can off-gas for weeks or even months after painting, leading to indoor air pollution. Exposure to VOCs can cause headaches, dizziness, eye irritation, and respiratory problems. Eco-friendly paints are formulated with Low-VOC or Zero-VOC ingredients, making them significantly safer for your family and pets.
+
+### 2. The Danger of Lead in Paint
+Lead was historically added to paint to accelerate drying, increase durability, and resist moisture. However, lead is a powerful neurotoxin that can cause severe health developmental issues, especially in children and pregnant women. In Nigeria, regulatory bodies like NAFDAC and SON are tightening regulations on lead content. Choosing certified lead-free paint is crucial for ensuring a safe living environment.
+
+### 3. Benefits of Eco-Friendly Paints
+*   **Improved Indoor Air Quality:** Virtually no odor during and after application. You can sleep in a freshly painted room the same day.
+*   **Healthier Environment:** Reduces the risk of asthma triggers, allergies, and respiratory issues.
+*   **Biodegradable Ingredients:** Many green paints use natural bases like clay, plant oils, or milk proteins, reducing the ecological footprint.
+*   **Excellent Performance:** Modern eco-paints offer high durability, coverage, and scrubbability, rivaling traditional oil-based alternatives.
+
+### 4. Making the Switch
+When purchasing paint for your next project, look for labels indicating "Low-VOC", "Zero-VOC", or "Lead-Free". At AJIBAZ PAINT, we are committed to health and sustainability. We offer a full range of premium eco-friendly paints that protect both your walls and your health.
+    `,
+    category: "Eco-Friendly",
+    date: "June 05, 2026",
+    author: "Mrs. Ajibaz",
+    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800",
+    slug: "eco-friendly-paints-nigeria",
+  },
+  {
+    id: "post-8",
+    title: "How to Paint Kitchen Cabinets Like a Professional",
+    excerpt: "Tired of your outdated kitchen? Painting your cabinets is the ultimate weekend project. Follow our step-by-step DIY guide for a factory-smooth finish.",
+    content: `
+Your kitchen cabinets take up a massive amount of visual space. If they look dated, your whole kitchen feels old. Fortunately, you don't need to spend millions replacing them. A fresh coat of paint can completely transform your kitchen. Here is how to achieve a professional, factory-smooth finish.
+
+### 1. Label and Remove Everything
+Do not try to paint cabinets while they are still hanging. 
+- Remove all cabinet doors, drawers, and hardware (hinges, handles).
+- **Pro Tip:** Write a small number under the hinge area of each door and a matching number inside the corresponding cabinet frame. This saves hours of frustration when reassembling.
+
+### 2. Clean Thoroughly (Degrease)
+Kitchen cabinets are coated in cooking grease, food residue, and steam. Paint will not adhere to grease.
+- Wash every surface with a heavy-duty degreaser or TSP (Trisodium Phosphate) solution.
+- Rinse with clean water and let dry completely.
+
+### 3. Sand the Surfaces
+You need to scuff up the existing finish so the primer can stick.
+- Use 120-grit to 150-grit sandpaper to sand all cabinet faces, frames, and drawers.
+- You don't need to sand down to bare wood; just remove the shine/varnish.
+- Wipe away all dust with a tack cloth or damp sponge.
+
+### 4. Apply a High-Adhesion Primer
+This is the most critical step. If you skip primer, the paint will peel within months.
+- Use a high-quality bonding primer (oil-based or shellac-based primers are best for blocking wood grains and old finishes).
+- Paint the frames first, then the doors and drawers.
+- Once dry, sand lightly with 220-grit sandpaper to smooth out any brush strokes, then wipe dust again.
+
+### 5. Paint the Cabinets
+- Use a high-quality semi-gloss or satin paint designed specifically for trim and cabinets (urethane acrylic alkyd paints are excellent).
+- Apply the paint in thin, even coats.
+- Use a high-quality brush for corners/details, and a small foam roller for the flat panels to avoid brush marks.
+- Apply at least two coats, sanding lightly between coats for a flawless result.
+
+### 6. Reassemble
+Allow the paint to cure for at least 48 to 72 hours before reattaching hinges and handles and hanging the doors. Paint may feel dry to the touch, but it needs time to fully cure and harden.
+
+Painting kitchen cabinets requires patience, but the beautiful, budget-friendly transformation is incredibly rewarding.
+    `,
+    category: "DIY & Tips",
+    date: "May 25, 2026",
+    author: "Mr. Ajibaz",
+    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800",
+    slug: "paint-kitchen-cabinets-guide",
+  },
+  {
+    id: "post-9",
+    title: "Choosing the Right Primer: The Foundation of Every Paint Job",
+    excerpt: "Primer is often ignored, but it is essential for a professional finish. Learn about the different types of primers and when to use them.",
+    content: `
+When embarking on a painting project, it's easy to focus all your attention on picking the perfect color. But there is a hidden hero that determines whether your paint job will look professional and last for years: primer. Primer acts as the glue between your surface and the paint. Here is how to choose the right one.
+
+### What Does Primer Do?
+1.  **Ensures Adhesion:** It provides a uniform surface that paint can grip easily.
+2.  **Blocks Stains:** Prevents water stains, grease, rust, and wood tannins from bleeding through the topcoat.
+3.  **Seals Porous Surfaces:** Drywall, raw wood, and concrete absorb paint like a sponge. Priming seals these pores, saving you from needing multiple costly coats of paint.
+4.  **Improves Paint Coverage:** Allows the true color of your paint to appear in fewer coats, especially when changing from dark to light colors.
+
+### Types of Primers and When to Use Them
+
+#### 1. Acrylic/Latex Primers
+- **Best For:** Interior drywall, masonry, concrete, and galvanized metal.
+- **Pros:** Water-based, fast-drying, low odor, and easy to clean up with water. They are excellent at sealing drywall and providing a flexible base.
+- **Cons:** Not as effective at blocking stains or sealing heavy wood knots.
+
+#### 2. Alkyd/Oil-Based Primers
+- **Best For:** Raw wood, stained walls, cabinets, and exterior surfaces.
+- **Pros:** Unmatched stain-blocking capabilities. They seal wood tannins, water stains, and nicotine marks. They also prevent wood from swelling when painted.
+- **Cons:** Slow drying, high odor (requires ventilation), and requires paint thinner or mineral spirits for clean-up.
+
+#### 3. Shellac-Based Primers
+- **Best For:** Heavy smoke/fire damage, severe water stains, and glossy surfaces.
+- **Pros:** The ultimate stain and odor blocker. It drys incredibly fast (often in 15 minutes) and can stick to almost anything, including glass, metal, and varnish.
+- **Cons:** Very brittle, high VOCs, and requires denatured alcohol for cleanup.
+
+### Tinted Primers
+If you are painting a dark or rich color (like deep red, navy, or dark green), ask your paint supplier to tint the primer gray. A gray base primer dramatically improves the coverage of dark paints, reducing the number of topcoats you need.
+
+Investing in the correct primer saves time, money, and frustration. It is the secret foundation of every professional paint job.
+    `,
+    category: "Guides",
+    date: "May 10, 2026",
+    author: "Mr. Ajibaz",
+    image: "https://images.unsplash.com/photo-1595853035070-59a39fe84de3?auto=format&fit=crop&q=80&w=800",
+    slug: "choosing-right-paint-primer",
+  },
 ];
+
