@@ -18,9 +18,9 @@ To combat these issues, you need high-quality exterior paints specifically formu
 
 ### 3. Surface Preparation is Crucial
 Even the best paint will fail if applied to a poorly prepared surface. 
-1.  **Cleaning:** The walls must be thoroughly pressure washed to remove dirt, loose paint, and existing algae.
-2.  **Repairs:** All cracks and holes must be filled with a suitable exterior-grade filler.
-3.  **Priming:** A high-quality masonry primer is non-negotiable. It seals the surface, neutralizes alkalinity (which can destroy paint), and ensures maximum adhesion of the topcoat.
+i.  **Cleaning:** The walls must be thoroughly pressure washed to remove dirt, loose paint, and existing algae.
+ii. **Repairs:** All cracks and holes must be filled with a suitable exterior-grade filler.
+iii. **Priming:** A high-quality masonry primer is non-negotiable. It seals the surface, neutralizes alkalinity (which can destroy paint), and ensures maximum adhesion of the topcoat.
 
 ### 4. Application Techniques
 For maximum durability, we recommend applying at least two coats of premium exterior paint over the primer. Allow sufficient drying time between coats as specified by the manufacturer. Never paint during a downpour or if rain is imminent within a few hours.

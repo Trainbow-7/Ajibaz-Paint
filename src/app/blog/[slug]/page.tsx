@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const renderContent = (content: string) => {
     const lines = content.split("\n");
     const elements: React.ReactNode[] = [];
-    let currentList: { type: "ul" | "ol"; items: string[] } | null = null;
+    let currentList: { type: "ul" | "ol" | "roman"; items: string[] } | null = null;
 
     const parseFormattedText = (text: string) => {
       const parts = text.split(/(\*\*.*?\*\*)/g);
@@ -72,6 +72,14 @@ export default async function BlogPostPage({ params }: PageProps) {
       } else if (currentList.type === "ol") {
         elements.push(
           <ol key={`ol-${keyPrefix}`} className="list-decimal pl-6 mb-6 space-y-2 text-text-secondary text-base sm:text-lg">
+            {currentList.items.map((item, i) => (
+              <li key={i}>{parseFormattedText(item)}</li>
+            ))}
+          </ol>
+        );
+      } else if (currentList.type === "roman") {
+        elements.push(
+          <ol key={`roman-${keyPrefix}`} className="list-[lower-roman] pl-6 mb-6 space-y-2 text-text-secondary text-base sm:text-lg">
             {currentList.items.map((item, i) => (
               <li key={i}>{parseFormattedText(item)}</li>
             ))}
@@ -113,6 +121,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         if (!currentList || currentList.type !== "ul") {
           flushList(index);
           currentList = { type: "ul", items: [] };
+        }
+        currentList.items.push(itemContent);
+        return;
+      }
+
+      if (/^(i|ii|iii|iv|v|vi|vii|viii|ix|x)\.\s/i.test(trimmed)) {
+        const itemContent = trimmed.replace(/^(i|ii|iii|iv|v|vi|vii|viii|ix|x)\.\s*/i, "").trim();
+        if (!currentList || currentList.type !== "roman") {
+          flushList(index);
+          currentList = { type: "roman", items: [] };
         }
         currentList.items.push(itemContent);
         return;
