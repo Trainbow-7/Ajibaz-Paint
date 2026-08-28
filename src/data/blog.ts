@@ -30,7 +30,7 @@ At AJIBAZ PAINT, we exclusively use premium, weather-tested brands and rigorous 
   category: "Exterior Painting",
   date: "August 24, 2026",
   author: "Mr. Ajibaz",
-  image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=1920",
+  image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=1200",
   slug: "exterior-paint-guide",
 };
 
