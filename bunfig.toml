@@ -1,0 +1,8 @@
+[install]
+lockfile = "package-lock.json"
+
+[scripts]
+# Development server using Bun (delegates to npm scripts)
+ dev = \npm run dev\
+ build = \npm run build\
+ start = \npm run start\
