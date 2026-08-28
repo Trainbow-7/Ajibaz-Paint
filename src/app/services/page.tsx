@@ -16,7 +16,7 @@ const services = [
     category: "Residential",
     description:
       "Complete interior and exterior painting for homes, apartments, duplexes, and estate properties. We prepare surfaces properly and apply premium paints for a durable, beautiful finish.",
-    icon: "🏡",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
   },
   {
     slug: "commercial-painting",
@@ -24,7 +24,7 @@ const services = [
     category: "Commercial",
     description:
       "Professional painting for offices, retail spaces, warehouses, schools, and public buildings. Minimal disruption to your business operations.",
-    icon: "🏢",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>,
   },
   {
     slug: "interior-painting",
@@ -32,7 +32,7 @@ const services = [
     category: "Residential",
     description:
       "Walls, ceilings, trim, and accent features. We help you choose colours and finishes that complement your furniture and lighting.",
-    icon: "🖌️",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="6" rx="2"/><path d="M12 9v11a2 2 0 0 1-2 2H8"/><path d="M20 6h2v3a4 4 0 0 1-4 4H12"/></svg>,
   },
   {
     slug: "exterior-painting",
@@ -40,7 +40,7 @@ const services = [
     category: "Residential",
     description:
       "Weather-resistant exterior painting that protects your building and boosts curb appeal. Includes proper surface preparation and priming.",
-    icon: "🏗️",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
   },
   {
     slug: "colour-mixing",
@@ -48,7 +48,7 @@ const services = [
     category: "Specialty",
     description:
       "Can't find the exact shade you want? Our precision colour mixing service creates custom paint colours to match any reference — a swatch, photo, or code.",
-    icon: "🎨",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 14.5 3.5 16.5 6 17H8.5C9.3 17 10 17.7 10 18.5C10 18.9 9.8 19.3 9.6 19.6C9.2 20.1 9 20.7 9 21.3C9 22.2 9.8 23 10.7 23H12Z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11.5" cy="7.5" r="1"/><circle cx="16.5" cy="9.5" r="1"/><circle cx="15.5" cy="14.5" r="1"/></svg>,
   },
   {
     slug: "decorative-finishes",
@@ -56,7 +56,7 @@ const services = [
     category: "Specialty",
     description:
       "Textured walls, faux finishes, accent walls, stencilling, and creative painting techniques for a unique, personalised look.",
-    icon: "✨",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5 5 3Z"/><path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1 1-2.5Z"/></svg>,
   },
   {
     slug: "paint-sales",
@@ -64,7 +64,7 @@ const services = [
     category: "Specialty",
     description:
       "Quality paints, primers, brushes, rollers, tape, and accessories available for purchase. We stock trusted brands at competitive prices.",
-    icon: "🪣",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7V9H5v6a7 7 0 0 0 7 7Z"/><path d="M19 9V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v4"/><path d="M12 13v5"/></svg>,
   },
   {
     slug: "surface-preparation",
@@ -72,7 +72,7 @@ const services = [
     category: "Commercial",
     description:
       "Proper scraping, sanding, filling, and priming to ensure paint adheres correctly and lasts longer. Essential for old or damaged surfaces.",
-    icon: "🔧",
+    icon: <svg className="w-10 h-10 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>,
   },
 ];
 
