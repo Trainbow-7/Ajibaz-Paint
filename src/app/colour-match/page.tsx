@@ -552,7 +552,7 @@ export default function ColourMatchPage() {
                 type="button"
                 onClick={() => runCalculation(targetHex, selectedVolume)}
                 disabled={isCalculating}
-                className="w-full py-4.5 px-7 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98 disabled:opacity-50"
+                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-bold text-base flex items-center justify-center gap-2.5 shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/35 transition-all transform active:scale-98 disabled:opacity-50"
               >
                 {isCalculating ? (
                   <>
@@ -796,17 +796,17 @@ export default function ColourMatchPage() {
                   </div>
 
                   {/* Conversion Button */}
-                  <div className="pt-3">
+                  <div className="pt-2">
                     <Link
                       href={getQuoteLink()}
-                      className="w-full py-4.5 px-8 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-black text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-3.5 shadow-xl shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98"
+                      className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/35 transition-all transform active:scale-98"
                     >
-                      <svg className="w-6 h-6 text-brand-secondary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-brand-secondary-light shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Request This Custom Mix Order (&ldquo;{result.targetColorName}&rdquo;)
+                      <span>Request Quote for &ldquo;{result.targetColorName}&rdquo;</span>
                     </Link>
-                    <p className="text-xs sm:text-sm text-slate-500 text-center mt-2.5 font-medium">
+                    <p className="text-xs text-slate-500 text-center mt-2 font-medium">
                       Pre-fills our quote form with &ldquo;{result.targetColorName}&rdquo;, base paint, and exact {result.totalVolumeLitres}L formula.
                     </p>
                   </div>
