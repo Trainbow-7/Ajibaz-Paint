@@ -121,14 +121,10 @@ export const ARCHITECTURAL_SHADES: NamedShade[] = [
   { name: 'Midnight Charcoal', hex: '#1F2937', category: 'Grey' },
 ];
 
-// Pre-compute Lab coordinates for fast lookups
-ARCHITECTURAL_SHADES.forEach((shade) => {
-  shade.lab = hexToLab(shade.hex);
-});
-
 /**
  * Returns the closest human-friendly paint color name for any Hex code.
  * Uses CIEDE2000 color distance to ensure accurate perceptual naming.
+ * Lab values are lazily initialized to prevent circular dependency ReferenceErrors.
  */
 export function getPaintColorName(hex: string): { name: string; category: string; deltaE: number } {
   const targetLab = hexToLab(hex);
@@ -136,12 +132,13 @@ export function getPaintColorName(hex: string): { name: string; category: string
   let minDelta = Infinity;
 
   for (const shade of ARCHITECTURAL_SHADES) {
-    if (shade.lab) {
-      const dE = calculateDeltaE2000(targetLab, shade.lab);
-      if (dE < minDelta) {
-        minDelta = dE;
-        closestShade = shade;
-      }
+    if (!shade.lab) {
+      shade.lab = hexToLab(shade.hex);
+    }
+    const dE = calculateDeltaE2000(targetLab, shade.lab);
+    if (dE < minDelta) {
+      minDelta = dE;
+      closestShade = shade;
     }
   }
 
