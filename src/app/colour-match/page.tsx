@@ -244,39 +244,39 @@ export default function ColourMatchPage() {
   const activeColorName = result ? result.targetColorName : getPaintColorName(targetHex).name;
 
   return (
-    <div className="min-h-screen bg-slate-50/70 text-slate-900 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50/70 text-slate-900 pb-28 relative overflow-hidden text-base">
       {/* Decorative Crisp Ambient Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-48 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary-dark via-brand-primary to-indigo-900 text-white border-b border-white/10 py-12 sm:py-16 shadow-lg">
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary-dark via-brand-primary to-indigo-900 text-white border-b border-white/10 py-14 sm:py-20 shadow-lg">
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-brand-secondary-light text-xs font-bold uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-brand-secondary-light animate-ping" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 border border-white/20 text-brand-secondary-light text-sm font-bold uppercase tracking-wider mb-5 shadow-sm backdrop-blur-md">
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-secondary-light animate-ping" />
             ✨ AI Precision Tinting Laboratory
           </div>
           
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
             Universal Paint Tinting &amp; Formula Engine
           </h1>
           
-          <p className="text-white/85 text-base sm:text-lg max-w-3xl mt-3 leading-relaxed">
+          <p className="text-white/90 text-lg sm:text-xl max-w-3xl mt-4 leading-relaxed font-normal">
             Formulate exact paint colors with machine precision. Input any Hex code, select an architectural preset, or upload an image to calculate the optimal base paint and exact colorant dosages in <strong>millilitres (mL)</strong> and <strong>grams (g)</strong>.
           </p>
 
           {/* Quick Feature Badges */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-white/90">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
+          <div className="mt-7 flex flex-wrap items-center gap-3.5 text-sm font-semibold text-white/90">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
               <span className="text-emerald-300 font-bold">✓</span> CIEDE2000 Accuracy
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
               <span className="text-blue-300 font-bold">✓</span> Smart Base Selection (White/Pastel vs Deep)
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
               <span className="text-amber-300 font-bold">✓</span> Named Architectural Shades
             </span>
           </div>
@@ -284,35 +284,35 @@ export default function ColourMatchPage() {
       </section>
 
       {/* Main Studio Workspace */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* LEFT COLUMN: Color & Batch Controls */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xl shadow-slate-200/60 space-y-6">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xl shadow-slate-200/60 space-y-7">
               
               {/* Step 1 Title */}
               <div>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-brand-primary">
+                <span className="text-xs font-black uppercase tracking-widest text-brand-primary">
                   Step 1 of 2
                 </span>
-                <h2 className="text-xl font-extrabold text-slate-900 flex items-center gap-2.5 mt-0.5">
-                  <span className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-black text-sm">
+                <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mt-1">
+                  <span className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-black text-base">
                     1
                   </span>
                   Select Target Color
                 </h2>
-                <p className="text-xs text-slate-500 mt-1.5">
-                  Current shade: <strong className="text-brand-primary">&ldquo;{activeColorName}&rdquo;</strong> ({targetHex})
+                <p className="text-sm text-slate-600 mt-2">
+                  Current shade: <strong className="text-brand-primary font-bold text-base">&ldquo;{activeColorName}&rdquo;</strong> <span className="font-mono text-xs">({targetHex})</span>
                 </p>
               </div>
 
               {/* Mode Switcher Tabs */}
-              <div className="grid grid-cols-3 gap-1 bg-slate-100/90 p-1.5 rounded-xl border border-slate-200">
+              <div className="grid grid-cols-3 gap-1.5 bg-slate-100/90 p-1.5 rounded-xl border border-slate-200">
                 <button
                   type="button"
                   onClick={() => setInputMode('hex')}
-                  className={`py-2 px-2 text-xs font-bold rounded-lg transition-all ${
+                  className={`py-2.5 px-3 text-sm font-bold rounded-lg transition-all ${
                     inputMode === 'hex'
                       ? 'bg-white text-brand-primary shadow-sm border border-slate-200/80'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
@@ -323,7 +323,7 @@ export default function ColourMatchPage() {
                 <button
                   type="button"
                   onClick={() => setInputMode('swatch')}
-                  className={`py-2 px-2 text-xs font-bold rounded-lg transition-all ${
+                  className={`py-2.5 px-3 text-sm font-bold rounded-lg transition-all ${
                     inputMode === 'swatch'
                       ? 'bg-white text-brand-primary shadow-sm border border-slate-200/80'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
@@ -334,35 +334,35 @@ export default function ColourMatchPage() {
                 <button
                   type="button"
                   onClick={() => setInputMode('photo')}
-                  className={`py-2 px-2 text-xs font-bold rounded-lg transition-all ${
+                  className={`py-2.5 px-3 text-sm font-bold rounded-lg transition-all ${
                     inputMode === 'photo'
                       ? 'bg-white text-brand-primary shadow-sm border border-slate-200/80'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
                   }`}
                 >
-                  Photo Eyedropper
+                  Photo Pick
                 </button>
               </div>
 
               {/* MODE 1: HEX & Native Color Picker */}
               {inputMode === 'hex' && (
-                <div className="space-y-4 animate-fade-in bg-slate-50/80 p-4 rounded-xl border border-slate-200/70">
-                  <div className="flex items-center gap-3.5">
+                <div className="space-y-4 animate-fade-in bg-slate-50/80 p-5 rounded-xl border border-slate-200/70">
+                  <div className="flex items-center gap-4">
                     <div className="relative shrink-0">
                       <input
                         type="color"
                         value={targetHex.length === 7 ? targetHex : '#C05A3E'}
                         onChange={(e) => handleHexChange(e.target.value)}
-                        className="w-14 h-14 rounded-xl cursor-pointer border-2 border-white shadow-md bg-transparent p-0 overflow-hidden"
+                        className="w-16 h-16 rounded-xl cursor-pointer border-2 border-white shadow-md bg-transparent p-0 overflow-hidden"
                         title="Click to open color spectrum picker"
                       />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                          HEX Code
+                      <div className="flex items-center justify-between mb-1.5">
+                        <label className="block text-xs font-black text-slate-700 uppercase tracking-wider">
+                          HEX Color Code
                         </label>
-                        <span className="text-[11px] font-bold text-brand-primary truncate max-w-[140px]">
+                        <span className="text-xs font-bold text-brand-primary truncate max-w-[150px]">
                           &ldquo;{activeColorName}&rdquo;
                         </span>
                       </div>
@@ -371,14 +371,14 @@ export default function ColourMatchPage() {
                         value={targetHex}
                         onChange={(e) => handleHexChange(e.target.value)}
                         placeholder="#C05A3E"
-                        className="w-full bg-white border-2 border-slate-200 rounded-xl px-3.5 py-2.5 text-slate-900 font-mono font-bold text-sm uppercase focus:outline-none focus:border-brand-primary transition-colors shadow-inner"
+                        className="w-full bg-white border-2 border-slate-200 rounded-xl px-4 py-3 text-slate-900 font-mono font-bold text-base uppercase focus:outline-none focus:border-brand-primary transition-colors shadow-inner"
                       />
                     </div>
                     {eyedropperSupported && (
                       <button
                         type="button"
                         onClick={handleNativeEyedropper}
-                        className="h-11 px-3.5 bg-white hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors self-end shadow-sm hover:border-brand-primary"
+                        className="h-12 px-4 bg-white hover:bg-slate-100 border-2 border-slate-200 text-slate-800 font-bold rounded-xl text-sm flex items-center gap-2 transition-colors self-end shadow-sm hover:border-brand-primary"
                         title="Pick color from anywhere on screen"
                       >
                         <svg className="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -393,11 +393,11 @@ export default function ColourMatchPage() {
 
               {/* MODE 2: Curated Architectural Swatches */}
               {inputMode === 'swatch' && (
-                <div className="space-y-3 animate-fade-in">
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                <div className="space-y-3.5 animate-fade-in">
+                  <label className="block text-xs font-black text-slate-700 uppercase tracking-wider">
                     Popular Nigerian Architectural Palette
                   </label>
-                  <div className="grid grid-cols-2 gap-2.5 max-h-60 overflow-y-auto pr-1">
+                  <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto pr-1">
                     {PRESET_SWATCHES.map((swatch) => (
                       <button
                         key={swatch.hex}
@@ -406,19 +406,19 @@ export default function ColourMatchPage() {
                           setTargetHex(swatch.hex);
                           runCalculation(swatch.hex, selectedVolume);
                         }}
-                        className={`flex items-center gap-2.5 p-2.5 rounded-xl border-2 text-left transition-all ${
+                        className={`flex items-center gap-3 p-3 rounded-xl border-2 text-left transition-all ${
                           targetHex.toUpperCase() === swatch.hex.toUpperCase()
-                            ? 'border-brand-primary bg-purple-50/70 shadow-sm ring-1 ring-brand-primary'
+                            ? 'border-brand-primary bg-purple-50/80 shadow-sm ring-2 ring-brand-primary/50'
                             : 'border-slate-200 bg-slate-50 hover:bg-white hover:border-slate-300'
                         }`}
                       >
                         <span
-                          className="w-7 h-7 rounded-lg border border-slate-300 shadow-sm shrink-0"
+                          className="w-8 h-8 rounded-lg border border-slate-300 shadow-sm shrink-0"
                           style={{ backgroundColor: swatch.hex }}
                         />
                         <div className="overflow-hidden">
-                          <p className="text-xs font-bold text-slate-900 truncate">&ldquo;{swatch.name}&rdquo;</p>
-                          <p className="text-[10px] font-mono font-medium text-slate-500">{swatch.hex}</p>
+                          <p className="text-sm font-bold text-slate-900 truncate">&ldquo;{swatch.name}&rdquo;</p>
+                          <p className="text-xs font-mono font-semibold text-slate-500">{swatch.hex}</p>
                         </div>
                       </button>
                     ))}
@@ -430,12 +430,12 @@ export default function ColourMatchPage() {
               {inputMode === 'photo' && (
                 <div className="space-y-4 animate-fade-in">
                   {!photoSrc ? (
-                    <label className="border-2 border-dashed border-slate-300 hover:border-brand-primary rounded-2xl p-7 flex flex-col items-center justify-center cursor-pointer transition-colors bg-slate-50/60 hover:bg-purple-50/30">
-                      <svg className="w-10 h-10 text-brand-primary/70 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <label className="border-2 border-dashed border-slate-300 hover:border-brand-primary rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer transition-colors bg-slate-50/60 hover:bg-purple-50/30">
+                      <svg className="w-12 h-12 text-brand-primary/70 mb-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span className="text-sm font-bold text-slate-900">Upload Reference Image</span>
-                      <span className="text-xs text-slate-500 mt-1">Browse or drag &amp; drop (JPG, PNG, WebP)</span>
+                      <span className="text-base font-black text-slate-900">Upload Reference Image</span>
+                      <span className="text-sm text-slate-500 mt-1">Browse or drag &amp; drop (JPG, PNG, WebP)</span>
                       <input
                         type="file"
                         accept="image/jpeg,image/png,image/webp"
@@ -444,12 +444,12 @@ export default function ColourMatchPage() {
                       />
                     </label>
                   ) : (
-                    <div className="space-y-3">
+                    <div className="space-y-3.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-slate-600">
+                        <span className="text-sm font-semibold text-slate-600">
                           Hover &amp; click image to sample pigment
                         </span>
-                        <label className="text-xs font-bold text-brand-primary hover:underline cursor-pointer">
+                        <label className="text-sm font-bold text-brand-primary hover:underline cursor-pointer">
                           Change Photo
                           <input
                             type="file"
@@ -476,25 +476,25 @@ export default function ColourMatchPage() {
                             style={{
                               left: `${loupePos.x}px`,
                               top: `${loupePos.y}px`,
-                              width: '54px',
-                              height: '54px',
+                              width: '58px',
+                              height: '58px',
                               backgroundColor: hoverColor,
                             }}
                           >
-                            <span className="w-2.5 h-2.5 rounded-full bg-white ring-1 ring-black" />
+                            <span className="w-3 h-3 rounded-full bg-white ring-1 ring-black" />
                           </div>
                         )}
                       </div>
 
                       {/* Live Selected Color from Photo */}
-                      <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                      <div className="flex items-center gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
                         <div
-                          className="w-9 h-9 rounded-lg border border-slate-300 shadow-sm"
+                          className="w-10 h-10 rounded-lg border border-slate-300 shadow-sm"
                           style={{ backgroundColor: targetHex }}
                         />
                         <div className="flex-1">
-                          <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Identified Color Shade</p>
-                          <p className="text-sm font-bold text-slate-900">&ldquo;{activeColorName}&rdquo; <span className="font-mono text-xs text-slate-500">({targetHex})</span></p>
+                          <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Identified Color Shade</p>
+                          <p className="text-base font-black text-slate-900">&ldquo;{activeColorName}&rdquo; <span className="font-mono text-sm font-semibold text-slate-500">({targetHex})</span></p>
                         </div>
                       </div>
                     </div>
@@ -503,28 +503,28 @@ export default function ColourMatchPage() {
               )}
 
               {/* Step 2: Volume Selection */}
-              <div className="pt-5 border-t border-slate-200/80 space-y-3.5">
+              <div className="pt-6 border-t border-slate-200/80 space-y-4">
                 <div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-brand-primary">
+                  <span className="text-xs font-black uppercase tracking-widest text-brand-primary">
                     Step 2 of 2
                   </span>
-                  <h2 className="text-xl font-extrabold text-slate-900 flex items-center gap-2.5 mt-0.5">
-                    <span className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-black text-sm">
+                  <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 mt-1">
+                    <span className="w-9 h-9 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-black text-base">
                       2
                     </span>
                     Total Paint Volume
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {STANDARD_VOLUMES.map((vol) => (
                     <button
                       key={vol.value}
                       type="button"
                       onClick={() => handleVolumeChange(vol.value)}
-                      className={`py-2.5 px-2 rounded-xl text-xs font-bold border-2 transition-all ${
+                      className={`py-3 px-2.5 rounded-xl text-sm font-bold border-2 transition-all ${
                         selectedVolume === vol.value
-                          ? 'border-brand-primary bg-brand-primary text-white shadow-md shadow-brand-primary/20'
+                          ? 'border-brand-primary bg-brand-primary text-white shadow-md shadow-brand-primary/25'
                           : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:border-slate-300'
                       }`}
                     >
@@ -533,17 +533,17 @@ export default function ColourMatchPage() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                  <label className="text-xs font-bold text-slate-700 whitespace-nowrap">Custom Volume:</label>
+                <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                  <label className="text-sm font-bold text-slate-700 whitespace-nowrap">Custom Volume:</label>
                   <input
                     type="number"
                     min="0.5"
                     step="0.5"
                     value={customVolume}
                     onChange={(e) => handleCustomVolumeInput(e.target.value)}
-                    className="w-24 bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-slate-900 text-xs font-bold focus:outline-none focus:border-brand-primary"
+                    className="w-28 bg-white border border-slate-300 rounded-lg px-3.5 py-2 text-slate-900 text-sm font-bold focus:outline-none focus:border-brand-primary"
                   />
-                  <span className="text-xs font-semibold text-slate-600">Litres</span>
+                  <span className="text-sm font-bold text-slate-600">Litres</span>
                 </div>
               </div>
 
@@ -552,7 +552,7 @@ export default function ColourMatchPage() {
                 type="button"
                 onClick={() => runCalculation(targetHex, selectedVolume)}
                 disabled={isCalculating}
-                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98 disabled:opacity-50"
+                className="w-full py-4.5 px-7 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98 disabled:opacity-50"
               >
                 {isCalculating ? (
                   <>
@@ -573,7 +573,7 @@ export default function ColourMatchPage() {
               </button>
 
               {saveStatus && (
-                <p className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 py-1.5 px-3 rounded-lg text-center font-bold animate-fade-in">
+                <p className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 py-2 px-3.5 rounded-lg text-center font-bold animate-fade-in">
                   {saveStatus}
                 </p>
               )}
@@ -586,30 +586,30 @@ export default function ColourMatchPage() {
               <div className="space-y-6 animate-fade-in">
                 
                 {/* Visual Swatch Comparison & Delta E Banner */}
-                <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xl shadow-slate-200/60 space-y-6">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+                <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xl shadow-slate-200/60 space-y-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
                     <div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand-primary">
+                      <span className="text-xs font-black uppercase tracking-widest text-brand-primary">
                         Spectrophotometer Simulation
                       </span>
-                      <h3 className="text-xl font-extrabold text-slate-900">
+                      <h3 className="text-2xl font-black text-slate-900 mt-0.5">
                         Formulation Match Analysis
                       </h3>
-                      <p className="text-xs text-slate-500">
-                        Target: <strong className="text-slate-800">&ldquo;{result.targetColorName}&rdquo;</strong> ({result.targetHex})
+                      <p className="text-sm text-slate-600 mt-0.5">
+                        Target: <strong className="text-slate-900 font-bold">&ldquo;{result.targetColorName}&rdquo;</strong> <span className="font-mono text-xs">({result.targetHex})</span>
                       </p>
                     </div>
 
                     {/* High-Visibility Delta E Badge */}
                     <div
-                      className={`px-3.5 py-2 rounded-xl border text-xs font-black flex items-center gap-2 shadow-sm ${
+                      className={`px-4 py-2 rounded-xl border text-sm font-black flex items-center gap-2.5 shadow-sm shrink-0 ${
                         result.matchQuality === 'excellent'
-                          ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
+                          ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
                           : result.matchQuality === 'good'
-                          ? 'bg-blue-50 border-blue-300 text-blue-800'
+                          ? 'bg-blue-50 border-blue-300 text-blue-900'
                           : result.matchQuality === 'moderate'
-                          ? 'bg-amber-50 border-amber-300 text-amber-800'
-                          : 'bg-rose-50 border-rose-300 text-rose-800'
+                          ? 'bg-amber-50 border-amber-300 text-amber-900'
+                          : 'bg-rose-50 border-rose-300 text-rose-900'
                       }`}
                     >
                       <span className="w-2.5 h-2.5 rounded-full bg-current animate-pulse" />
@@ -618,24 +618,24 @@ export default function ColourMatchPage() {
                   </div>
 
                   {/* Swatches Side-by-Side (Actual Quoted Color Names Displayed) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     
                     {/* Target Color Swatch */}
-                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-2.5">
+                    <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Target Shade</span>
-                        <span className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">
+                        <span className="text-xs font-black text-slate-500 uppercase tracking-wider">Target Shade</span>
+                        <span className="font-mono text-sm bg-white px-2.5 py-0.5 rounded border border-slate-200 text-slate-800 font-bold">
                           {result.targetHex}
                         </span>
                       </div>
-                      <h4 className="text-base font-black text-slate-900 truncate">
+                      <h4 className="text-lg sm:text-xl font-black text-slate-900 truncate">
                         &ldquo;{result.targetColorName}&rdquo;
                       </h4>
                       <div
-                        className="h-28 w-full rounded-xl shadow-md border-2 border-white transition-all"
+                        className="h-32 w-full rounded-xl shadow-md border-2 border-white transition-all"
                         style={{ backgroundColor: result.targetHex }}
                       />
-                      <div className="text-[11px] font-mono font-bold text-slate-600 flex justify-between bg-white px-2.5 py-1.5 rounded-lg border border-slate-200">
+                      <div className="text-xs sm:text-sm font-mono font-bold text-slate-700 flex justify-between bg-white px-3 py-2 rounded-lg border border-slate-200">
                         <span>L*: {result.targetLab.l}</span>
                         <span>a*: {result.targetLab.a}</span>
                         <span>b*: {result.targetLab.b}</span>
@@ -643,21 +643,21 @@ export default function ColourMatchPage() {
                     </div>
 
                     {/* Achieved Mix Swatch */}
-                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-2.5">
+                    <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Calculated Match</span>
-                        <span className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">
+                        <span className="text-xs font-black text-slate-500 uppercase tracking-wider">Calculated Match</span>
+                        <span className="font-mono text-sm bg-white px-2.5 py-0.5 rounded border border-slate-200 text-slate-800 font-bold">
                           {result.achievedHex}
                         </span>
                       </div>
-                      <h4 className="text-base font-black text-slate-900 truncate">
+                      <h4 className="text-lg sm:text-xl font-black text-slate-900 truncate">
                         &ldquo;{result.achievedColorName}&rdquo;
                       </h4>
                       <div
-                        className="h-28 w-full rounded-xl shadow-md border-2 border-white transition-all"
+                        className="h-32 w-full rounded-xl shadow-md border-2 border-white transition-all"
                         style={{ backgroundColor: result.achievedHex }}
                       />
-                      <div className="text-[11px] font-mono font-bold text-slate-600 flex justify-between bg-white px-2.5 py-1.5 rounded-lg border border-slate-200">
+                      <div className="text-xs sm:text-sm font-mono font-bold text-slate-700 flex justify-between bg-white px-3 py-2 rounded-lg border border-slate-200">
                         <span>L*: {result.achievedLab.l}</span>
                         <span>a*: {result.achievedLab.a}</span>
                         <span>b*: {result.achievedLab.b}</span>
@@ -666,104 +666,104 @@ export default function ColourMatchPage() {
                   </div>
 
                   {/* Quality Summary Text */}
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed font-medium">
-                    <span className="font-extrabold text-slate-900">Delta E Interpretation: </span>
+                  <div className="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
+                    <span className="font-black text-slate-900">Delta E Interpretation: </span>
                     {result.qualitySummary}
                   </div>
                 </div>
 
                 {/* Base Paint & Formulation Table */}
-                <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xl shadow-slate-200/60 space-y-6">
+                <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xl shadow-slate-200/60 space-y-7">
                   
                   {/* Selected Base Paint Card */}
-                  <div className="bg-gradient-to-r from-purple-50 via-indigo-50/60 to-blue-50 p-5 rounded-2xl border border-indigo-100">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="bg-gradient-to-r from-purple-50 via-indigo-50/60 to-blue-50 p-6 rounded-2xl border border-indigo-100 shadow-sm">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-brand-primary">
-                          Step 1: Required Base Paint
+                        <span className="text-xs font-black uppercase tracking-wider text-brand-primary">
+                          STEP 1: REQUIRED BASE PAINT
                         </span>
-                        <h4 className="text-lg font-black text-slate-900 flex items-center gap-2 mt-0.5">
+                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3 mt-1">
                           {result.base.name}
-                          <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-brand-primary text-white shadow-sm">
+                          <span className="text-sm font-mono font-bold px-3 py-1 rounded-lg bg-brand-primary text-white shadow-sm">
                             {result.base.code}
                           </span>
                         </h4>
                       </div>
-                      <div className="sm:text-right bg-white/80 px-3 py-1.5 rounded-xl border border-indigo-100">
-                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Batch Quantity</span>
-                        <p className="text-base font-black text-brand-primary">{result.totalVolumeLitres} Litres</p>
+                      <div className="sm:text-right bg-white px-4 py-2 rounded-xl border border-indigo-100 shadow-sm">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">BATCH QUANTITY</span>
+                        <p className="text-lg sm:text-xl font-black text-brand-primary">{result.totalVolumeLitres} Litres</p>
                       </div>
                     </div>
-                    <p className="text-xs text-slate-700 mt-2.5 leading-relaxed font-medium">
+                    <p className="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed font-normal">
                       {result.baseReason}
                     </p>
                   </div>
 
                   {/* Universal Colorants Table */}
                   <div>
-                    <div className="flex items-center justify-between mb-3.5">
+                    <div className="flex items-center justify-between mb-4">
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-wider text-brand-primary">
-                          Step 2: Universal Colorant Dosing Recipe
+                        <span className="text-xs font-black uppercase tracking-wider text-brand-primary">
+                          STEP 2: UNIVERSAL COLORANT DOSING RECIPE
                         </span>
-                        <h4 className="text-base font-extrabold text-slate-900">
+                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">
                           Automated Machine Dispenser Ratios
                         </h4>
                       </div>
                       <div className="text-right">
-                        <span className="text-[11px] font-bold text-slate-500">Total Tint:</span>
-                        <p className="text-xs font-mono font-black text-brand-primary">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Tint:</span>
+                        <p className="text-sm sm:text-base font-mono font-black text-brand-primary">
                           {result.totalColorantMl} mL ({result.totalColorantGrams}g)
                         </p>
                       </div>
                     </div>
 
                     {result.colorantDoses.length > 0 ? (
-                      <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-                        <table className="w-full text-left text-xs border-collapse bg-white">
+                      <div className="overflow-x-auto rounded-xl border-2 border-slate-200 shadow-sm">
+                        <table className="w-full text-left text-sm sm:text-base border-collapse bg-white">
                           <thead>
-                            <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[10px] tracking-wider">
-                              <th className="py-3 px-3.5">Colorant</th>
-                              <th className="py-3 px-2">Code</th>
-                              <th className="py-3 px-2">Dose / Litre</th>
-                              <th className="py-3 px-2 text-right">Total Volume</th>
-                              <th className="py-3 px-2 text-right">Total Weight</th>
-                              <th className="py-3 px-3.5 text-right">Mix Share</th>
+                            <tr className="bg-slate-100/80 border-b-2 border-slate-200 text-slate-700 font-black uppercase text-xs tracking-wider">
+                              <th className="py-3.5 px-4">Colorant</th>
+                              <th className="py-3.5 px-3">Code</th>
+                              <th className="py-3.5 px-3">Dose / Litre</th>
+                              <th className="py-3.5 px-3 text-right">Total Volume</th>
+                              <th className="py-3.5 px-3 text-right">Total Weight</th>
+                              <th className="py-3.5 px-4 text-right">Mix Share</th>
                             </tr>
                           </thead>
-                          <tbody className="divide-y divide-slate-100">
+                          <tbody className="divide-y divide-slate-200">
                             {result.colorantDoses.map((dose) => (
-                              <tr key={dose.colorant.id} className="hover:bg-slate-50/80 transition-colors">
-                                <td className="py-3 px-3.5">
-                                  <div className="flex items-center gap-2.5">
+                              <tr key={dose.colorant.id} className="hover:bg-slate-50/90 transition-colors">
+                                <td className="py-4 px-4">
+                                  <div className="flex items-center gap-3">
                                     <span
-                                      className="w-4 h-4 rounded-md border border-slate-300 shadow-sm shrink-0"
+                                      className="w-5 h-5 rounded-md border border-slate-300 shadow-sm shrink-0"
                                       style={{ backgroundColor: dose.colorant.hex }}
                                     />
-                                    <span className="font-bold text-slate-900">{dose.colorant.name}</span>
+                                    <span className="font-bold text-slate-900 text-sm sm:text-base">{dose.colorant.name}</span>
                                   </div>
                                 </td>
-                                <td className="py-3 px-2 font-mono font-black text-brand-primary">
+                                <td className="py-4 px-3 font-mono font-black text-brand-primary text-base">
                                   {dose.colorant.code}
                                 </td>
-                                <td className="py-3 px-2 font-mono font-semibold text-slate-700">
+                                <td className="py-4 px-3 font-mono font-semibold text-slate-700 text-sm sm:text-base">
                                   {dose.dosageMlPerLitre} mL/L
                                 </td>
-                                <td className="py-3 px-2 font-mono font-black text-slate-900 text-right">
+                                <td className="py-4 px-3 font-mono font-black text-slate-900 text-right text-base sm:text-lg">
                                   {dose.totalMl} mL
                                 </td>
-                                <td className="py-3 px-2 font-mono font-semibold text-slate-700 text-right">
+                                <td className="py-4 px-3 font-mono font-semibold text-slate-700 text-right text-sm sm:text-base">
                                   {dose.totalGrams} g
                                 </td>
-                                <td className="py-3 px-3.5 text-right">
-                                  <div className="flex items-center justify-end gap-2">
-                                    <div className="w-12 bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200">
+                                <td className="py-4 px-4 text-right">
+                                  <div className="flex items-center justify-end gap-2.5">
+                                    <div className="w-14 bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200">
                                       <div
                                         className="bg-brand-primary h-full rounded-full"
                                         style={{ width: `${dose.percentOfTotalColorant}%` }}
                                       />
                                     </div>
-                                    <span className="font-mono font-bold text-slate-700 w-9 text-right">
+                                    <span className="font-mono font-bold text-slate-800 text-sm w-11 text-right">
                                       {dose.percentOfTotalColorant}%
                                     </span>
                                   </div>
@@ -774,51 +774,51 @@ export default function ColourMatchPage() {
                         </table>
                       </div>
                     ) : (
-                      <p className="text-xs text-slate-500 py-4 text-center bg-slate-50 rounded-xl border border-slate-200">
+                      <p className="text-sm sm:text-base text-slate-600 py-6 text-center bg-slate-50 rounded-xl border border-slate-200">
                         This color is naturally achieved by the pure base paint with zero tint addition.
                       </p>
                     )}
                   </div>
 
                   {/* Laboratory Advisory Disclaimer */}
-                  <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="p-5 rounded-2xl bg-amber-50/90 border-2 border-amber-200 flex items-start gap-3.5">
+                    <svg className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <div className="text-xs text-amber-900 space-y-1">
-                      <p className="font-bold text-amber-900">
+                    <div className="text-sm sm:text-base text-amber-950 space-y-1">
+                      <p className="font-black text-amber-950 text-base">
                         In-Store Technician Calibration Recommended
                       </p>
-                      <p className="leading-relaxed text-amber-800">
+                      <p className="leading-relaxed text-amber-900 font-normal">
                         This formula provides a mathematically optimized tinting starting point using standard universal colorants. For commercial orders and large drum batches, our factory technicians perform physical drawdown cards and spectrophotometer checks to guarantee exact substrate coverage.
                       </p>
                     </div>
                   </div>
 
                   {/* Conversion Button */}
-                  <div className="pt-2">
+                  <div className="pt-3">
                     <Link
                       href={getQuoteLink()}
-                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-3 shadow-xl shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98"
+                      className="w-full py-4.5 px-8 rounded-xl bg-gradient-to-r from-brand-primary via-purple-700 to-indigo-800 hover:from-purple-800 hover:to-brand-primary-dark text-white font-black text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-3.5 shadow-xl shadow-brand-primary/25 hover:shadow-brand-primary/40 transition-all transform active:scale-98"
                     >
-                      <svg className="w-5 h-5 text-brand-secondary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-brand-secondary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       Request This Custom Mix Order (&ldquo;{result.targetColorName}&rdquo;)
                     </Link>
-                    <p className="text-[11px] text-slate-500 text-center mt-2 font-medium">
+                    <p className="text-xs sm:text-sm text-slate-500 text-center mt-2.5 font-medium">
                       Pre-fills our quote form with &ldquo;{result.targetColorName}&rdquo;, base paint, and exact {result.totalVolumeLitres}L formula.
                     </p>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center text-slate-500 shadow-md">
-                <svg className="w-12 h-12 mx-auto text-brand-primary/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl border border-slate-200 p-14 text-center text-slate-500 shadow-md">
+                <svg className="w-14 h-14 mx-auto text-brand-primary/40 mb-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
-                <p className="text-base font-bold text-slate-900">Select a color to calculate formulation</p>
-                <p className="text-xs text-slate-500 mt-1">Enter a Hex code, pick an architectural preset, or upload an image.</p>
+                <p className="text-lg font-bold text-slate-900">Select a color to calculate formulation</p>
+                <p className="text-sm text-slate-500 mt-1.5">Enter a Hex code, pick an architectural preset, or upload an image.</p>
               </div>
             )}
           </div>
