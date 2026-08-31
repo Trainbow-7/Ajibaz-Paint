@@ -33,13 +33,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-brand-secondary flex items-center justify-center font-bold text-brand-primary-dark text-sm">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-secondary-dark via-brand-secondary to-blue-400 flex items-center justify-center font-black text-white text-base shadow-md shadow-brand-secondary/20 shrink-0 border border-white/20">
                 AP
               </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-white font-bold text-lg tracking-tight">AJIBAZ PAINT</span>
-                <span className="text-brand-secondary text-[0.6rem] font-semibold tracking-widest uppercase -mt-0.5">NIGERIA LIMITED</span>
+              <div className="flex flex-col justify-center min-w-0">
+                <span className="text-white font-extrabold text-lg sm:text-xl tracking-tight leading-tight whitespace-nowrap">
+                  AJIBAZ PAINT
+                </span>
+                <span className="text-brand-secondary text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase leading-none whitespace-nowrap mt-0.5">
+                  NIGERIA LIMITED
+                </span>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6 text-white/70">

@@ -1,14 +1,49 @@
 'use client';
 
-import { useState } from 'react';
-import type { Metadata } from 'next';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-// Note: metadata must be in a separate file for client components
-// We'll handle this via a parent layout or generateMetadata in the future
-
-export default function QuotePage() {
+function QuoteForm() {
+  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Form field states for pre-filling
+  const [service, setService] = useState('');
+  const [preferredColour, setPreferredColour] = useState('');
+  const [description, setDescription] = useState('');
+  const [formulaLoaded, setFormulaLoaded] = useState(false);
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    const targetHex = searchParams.get('target_hex');
+    const base = searchParams.get('base');
+    const baseCode = searchParams.get('base_code');
+    const volume = searchParams.get('volume');
+    const deltaE = searchParams.get('delta_e');
+    const matchQuality = searchParams.get('match_quality');
+    const formulaSummary = searchParams.get('formula_summary');
+
+    if (serviceParam) {
+      setService(serviceParam);
+    }
+
+    if (targetHex || formulaSummary) {
+      setFormulaLoaded(true);
+      if (targetHex) {
+        setPreferredColour(`${targetHex} (Base: ${base || 'Auto'} [${baseCode || ''}])`);
+      }
+      const descParts: string[] = [];
+      descParts.push(`--- AI CUSTOM COLOUR MIXING ORDER ---`);
+      if (targetHex) descParts.push(`Target Color: ${targetHex}`);
+      if (base) descParts.push(`Base Paint: ${base} (${baseCode || ''})`);
+      if (volume) descParts.push(`Requested Volume: ${volume}`);
+      if (deltaE) descParts.push(`Calculated ΔE: ${deltaE} (${matchQuality || ''})`);
+      if (formulaSummary) descParts.push(`Formula Dosing: ${formulaSummary}`);
+      descParts.push(`--------------------------------------`);
+      setDescription(descParts.join('\n'));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +65,7 @@ export default function QuotePage() {
             Thank You for Contacting AJIBAZ PAINT NIGERIA LIMITED
           </h1>
           <p className="text-text-secondary text-lg mb-8">
-            Your project request has been received. Our team will review the
+            Your custom mixing &amp; project request has been received. Our team will review the
             information and contact you shortly.
           </p>
           <a href="/" className="btn btn-primary">
@@ -54,7 +89,7 @@ export default function QuotePage() {
           </h1>
           <p className="text-white/70 text-lg max-w-2xl">
             Fill out the form below and we&apos;ll get back to you with a
-            detailed estimate for your painting project.
+            detailed estimate for your painting project or custom color batch.
           </p>
         </div>
       </section>
@@ -62,6 +97,20 @@ export default function QuotePage() {
       {/* Form */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {formulaLoaded && (
+            <div className="mb-8 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex items-center gap-3">
+              <svg className="w-6 h-6 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div className="text-sm">
+                <p className="font-bold">Custom Tinting Formula Attached!</p>
+                <p className="text-xs text-emerald-700">
+                  Your AI-calculated pigment formula, base paint, and batch volume have been pre-filled below.
+                </p>
+              </div>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Honeypot field */}
             <div className="hidden" aria-hidden="true">
@@ -106,7 +155,14 @@ export default function QuotePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="project_type" className="form-label">Service Required *</label>
-                  <select id="project_type" name="project_type" required className="form-input">
+                  <select
+                    id="project_type"
+                    name="project_type"
+                    required
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                    className="form-input"
+                  >
                     <option value="">Select a service</option>
                     <option value="residential-painting">Residential Painting</option>
                     <option value="commercial-painting">Commercial Painting</option>
@@ -114,7 +170,7 @@ export default function QuotePage() {
                     <option value="exterior-painting">Exterior Painting</option>
                     <option value="colour-mixing">Custom Colour Mixing</option>
                     <option value="decorative-finishes">Decorative Finishes</option>
-                    <option value="paint-sales">Paint & Material Purchase</option>
+                    <option value="paint-sales">Paint &amp; Material Purchase</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -158,7 +214,15 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <label htmlFor="preferred_colour" className="form-label">Preferred Colour(s)</label>
-                  <input type="text" id="preferred_colour" name="preferred_colour" className="form-input" placeholder="e.g. Off-white, Sky blue" />
+                  <input
+                    type="text"
+                    id="preferred_colour"
+                    name="preferred_colour"
+                    value={preferredColour}
+                    onChange={(e) => setPreferredColour(e.target.value)}
+                    className="form-input"
+                    placeholder="e.g. Off-white, Sky blue"
+                  />
                 </div>
                 <div>
                   <label htmlFor="target_start_date" className="form-label">Target Start Date</label>
@@ -176,12 +240,14 @@ export default function QuotePage() {
                   </select>
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="description" className="form-label">Project Description</label>
+                  <label htmlFor="description" className="form-label">Project / Mixing Description</label>
                   <textarea
                     id="description"
                     name="description"
-                    rows={4}
-                    className="form-input resize-y"
+                    rows={5}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="form-input resize-y font-mono text-xs"
                     placeholder="Describe your project, any special requirements, or additional details..."
                   />
                 </div>
@@ -221,5 +287,13 @@ export default function QuotePage() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function QuotePage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center text-text-secondary">Loading quote form...</div>}>
+      <QuoteForm />
+    </Suspense>
   );
 }
