@@ -6,6 +6,7 @@ import {
   RGBColor,
   UNIVERSAL_COLORANTS,
 } from './colorants';
+import { getPaintColorName } from './colorNamer';
 
 /**
  * Standard D65 Reference White Point (2-degree standard observer)
@@ -350,8 +351,10 @@ export interface TintingColorantDose {
 
 export interface FormulationResult {
   targetHex: string;
+  targetColorName: string;
   targetLab: LabColor;
   achievedHex: string;
+  achievedColorName: string;
   achievedLab: LabColor;
   base: PaintBase;
   baseReason: string;
@@ -584,10 +587,15 @@ export function calculateTintingFormula(
     notes.push('⚠️ Flagged low-confidence match: Target shade requires specialized exterior pigment dispersion or custom factory mixing.');
   }
 
+  const targetColorName = getPaintColorName(targetHex).name;
+  const achievedColorName = getPaintColorName(achievedHex).name;
+
   return {
     targetHex,
+    targetColorName,
     targetLab,
     achievedHex,
+    achievedColorName,
     achievedLab,
     base,
     baseReason,

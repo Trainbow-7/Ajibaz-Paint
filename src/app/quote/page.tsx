@@ -13,9 +13,12 @@ function QuoteForm() {
   const [preferredColour, setPreferredColour] = useState('');
   const [description, setDescription] = useState('');
   const [formulaLoaded, setFormulaLoaded] = useState(false);
+  const [loadedColorName, setLoadedColorName] = useState('');
+  const [loadedHex, setLoadedHex] = useState('');
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
+    const colorName = searchParams.get('color_name');
     const targetHex = searchParams.get('target_hex');
     const base = searchParams.get('base');
     const baseCode = searchParams.get('base_code');
@@ -28,14 +31,22 @@ function QuoteForm() {
       setService(serviceParam);
     }
 
-    if (targetHex || formulaSummary) {
+    if (targetHex || colorName || formulaSummary) {
       setFormulaLoaded(true);
-      if (targetHex) {
-        setPreferredColour(`${targetHex} (Base: ${base || 'Auto'} [${baseCode || ''}])`);
-      }
+      if (colorName) setLoadedColorName(colorName);
+      if (targetHex) setLoadedHex(targetHex);
+
+      const quotedName = colorName ? `"${colorName}"` : (targetHex ? `"${targetHex}"` : '');
+      const hexNote = targetHex && colorName ? ` (${targetHex})` : '';
+      const baseNote = base ? ` - Base: ${base}${baseCode ? ` [${baseCode}]` : ''}` : '';
+
+      setPreferredColour(`${quotedName}${hexNote}${baseNote}`.trim());
+
       const descParts: string[] = [];
       descParts.push(`--- AI CUSTOM COLOUR MIXING ORDER ---`);
-      if (targetHex) descParts.push(`Target Color: ${targetHex}`);
+      if (colorName || targetHex) {
+        descParts.push(`Target Color: ${quotedName}${hexNote}`);
+      }
       if (base) descParts.push(`Base Paint: ${base} (${baseCode || ''})`);
       if (volume) descParts.push(`Requested Volume: ${volume}`);
       if (deltaE) descParts.push(`Calculated ΔE: ${deltaE} (${matchQuality || ''})`);
@@ -103,9 +114,11 @@ function QuoteForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div className="text-sm">
-                <p className="font-bold">Custom Tinting Formula Attached!</p>
+                <p className="font-bold">
+                  Custom Tinting Formula Attached: {loadedColorName ? `"${loadedColorName}"` : 'Custom Mix'} {loadedHex ? `(${loadedHex})` : ''}
+                </p>
                 <p className="text-xs text-emerald-700">
-                  Your AI-calculated pigment formula, base paint, and batch volume have been pre-filled below.
+                  Your shade, required base paint, and AI-calculated machine dosing have been pre-filled below.
                 </p>
               </div>
             </div>

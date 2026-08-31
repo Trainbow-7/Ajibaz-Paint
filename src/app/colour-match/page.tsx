@@ -9,6 +9,7 @@ import {
   labToHex,
   rgbToHex,
 } from '@/lib/colorScience';
+import { getPaintColorName } from '@/lib/colorNamer';
 import { STANDARD_VOLUMES } from '@/lib/colorants';
 
 // Popular Nigerian architectural shade presets
@@ -41,6 +42,7 @@ export default function ColourMatchPage() {
   const [photoSrc, setPhotoSrc] = useState<string | null>(null);
   const [isHoveringCanvas, setIsHoveringCanvas] = useState<boolean>(false);
   const [hoverColor, setHoverColor] = useState<string>('#C05A3E');
+  const [hoverColorName, setHoverColorName] = useState<string>('Terracotta Heritage');
   const [loupePos, setLoupePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [eyedropperSupported, setEyedropperSupported] = useState<boolean>(false);
 
@@ -68,8 +70,10 @@ export default function ColourMatchPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           targetHex: formula.targetHex,
+          targetColorName: formula.targetColorName,
           targetLab: formula.targetLab,
           achievedHex: formula.achievedHex,
+          achievedColorName: formula.achievedColorName,
           achievedLab: formula.achievedLab,
           base: formula.base,
           deltaE2000: formula.deltaE2000,
@@ -177,6 +181,7 @@ export default function ColourMatchPage() {
       const pixel = ctx.getImageData(x, y, 1, 1).data;
       const hex = rgbToHex({ r: pixel[0], g: pixel[1], b: pixel[2] });
       setHoverColor(hex);
+      setHoverColorName(getPaintColorName(hex).name);
       setLoupePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
       setIsHoveringCanvas(true);
     }
@@ -217,11 +222,12 @@ export default function ColourMatchPage() {
     }
   };
 
-  // Build Quote Link with pre-filled query parameters
+  // Build Quote Link with actual quoted paint shade name
   const getQuoteLink = () => {
     if (!result) return '/quote';
     const params = new URLSearchParams({
       service: 'colour-mixing',
+      color_name: result.targetColorName,
       target_hex: result.targetHex,
       base: result.base.name,
       base_code: result.base.code,
@@ -234,6 +240,8 @@ export default function ColourMatchPage() {
     });
     return `/quote?${params.toString()}`;
   };
+
+  const activeColorName = result ? result.targetColorName : getPaintColorName(targetHex).name;
 
   return (
     <div className="min-h-screen bg-slate-50/70 text-slate-900 pb-24 relative overflow-hidden">
@@ -269,7 +277,7 @@ export default function ColourMatchPage() {
               <span className="text-blue-300 font-bold">✓</span> Smart Base Selection (White/Pastel vs Deep)
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
-              <span className="text-amber-300 font-bold">✓</span> Dosing Limits &amp; Gravimetric Mass (g)
+              <span className="text-amber-300 font-bold">✓</span> Named Architectural Shades
             </span>
           </div>
         </div>
@@ -295,7 +303,7 @@ export default function ColourMatchPage() {
                   Select Target Color
                 </h2>
                 <p className="text-xs text-slate-500 mt-1.5">
-                  Pick your shade via HEX code, architectural palette, or reference image.
+                  Current shade: <strong className="text-brand-primary">&ldquo;{activeColorName}&rdquo;</strong> ({targetHex})
                 </p>
               </div>
 
@@ -350,9 +358,14 @@ export default function ColourMatchPage() {
                       />
                     </div>
                     <div className="flex-1">
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                        HEX Color Code
-                      </label>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                          HEX Code
+                        </label>
+                        <span className="text-[11px] font-bold text-brand-primary truncate max-w-[140px]">
+                          &ldquo;{activeColorName}&rdquo;
+                        </span>
+                      </div>
                       <input
                         type="text"
                         value={targetHex}
@@ -404,7 +417,7 @@ export default function ColourMatchPage() {
                           style={{ backgroundColor: swatch.hex }}
                         />
                         <div className="overflow-hidden">
-                          <p className="text-xs font-bold text-slate-900 truncate">{swatch.name}</p>
+                          <p className="text-xs font-bold text-slate-900 truncate">&ldquo;{swatch.name}&rdquo;</p>
                           <p className="text-[10px] font-mono font-medium text-slate-500">{swatch.hex}</p>
                         </div>
                       </button>
@@ -480,8 +493,8 @@ export default function ColourMatchPage() {
                           style={{ backgroundColor: targetHex }}
                         />
                         <div className="flex-1">
-                          <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Sampled Color</p>
-                          <p className="text-sm font-mono font-bold text-slate-900">{targetHex}</p>
+                          <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Identified Color Shade</p>
+                          <p className="text-sm font-bold text-slate-900">&ldquo;{activeColorName}&rdquo; <span className="font-mono text-xs text-slate-500">({targetHex})</span></p>
                         </div>
                       </div>
                     </div>
@@ -583,7 +596,7 @@ export default function ColourMatchPage() {
                         Formulation Match Analysis
                       </h3>
                       <p className="text-xs text-slate-500">
-                        CIE-L*a*b* D65 Daylight Spectral Model
+                        Target: <strong className="text-slate-800">&ldquo;{result.targetColorName}&rdquo;</strong> ({result.targetHex})
                       </p>
                     </div>
 
@@ -604,18 +617,22 @@ export default function ColourMatchPage() {
                     </div>
                   </div>
 
-                  {/* Swatches Side-by-Side (Crisp White Card Backgrounds) */}
+                  {/* Swatches Side-by-Side (Actual Quoted Color Names Displayed) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
                     {/* Target Color Swatch */}
-                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-3">
-                      <div className="flex items-center justify-between text-xs font-bold text-slate-700">
-                        <span>Target Input Color</span>
-                        <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-900">
+                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Target Shade</span>
+                        <span className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">
                           {result.targetHex}
                         </span>
                       </div>
+                      <h4 className="text-base font-black text-slate-900 truncate">
+                        &ldquo;{result.targetColorName}&rdquo;
+                      </h4>
                       <div
-                        className="h-32 w-full rounded-xl shadow-md border-2 border-white transition-all"
+                        className="h-28 w-full rounded-xl shadow-md border-2 border-white transition-all"
                         style={{ backgroundColor: result.targetHex }}
                       />
                       <div className="text-[11px] font-mono font-bold text-slate-600 flex justify-between bg-white px-2.5 py-1.5 rounded-lg border border-slate-200">
@@ -626,15 +643,18 @@ export default function ColourMatchPage() {
                     </div>
 
                     {/* Achieved Mix Swatch */}
-                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-3">
-                      <div className="flex items-center justify-between text-xs font-bold text-slate-700">
-                        <span>Achieved Mix Swatch</span>
-                        <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-900">
+                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 shadow-sm space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Calculated Match</span>
+                        <span className="font-mono text-xs bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 font-bold">
                           {result.achievedHex}
                         </span>
                       </div>
+                      <h4 className="text-base font-black text-slate-900 truncate">
+                        &ldquo;{result.achievedColorName}&rdquo;
+                      </h4>
                       <div
-                        className="h-32 w-full rounded-xl shadow-md border-2 border-white transition-all"
+                        className="h-28 w-full rounded-xl shadow-md border-2 border-white transition-all"
                         style={{ backgroundColor: result.achievedHex }}
                       />
                       <div className="text-[11px] font-mono font-bold text-slate-600 flex justify-between bg-white px-2.5 py-1.5 rounded-lg border border-slate-200">
@@ -784,10 +804,10 @@ export default function ColourMatchPage() {
                       <svg className="w-5 h-5 text-brand-secondary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Request This Custom Mix Order
+                      Request This Custom Mix Order (&ldquo;{result.targetColorName}&rdquo;)
                     </Link>
                     <p className="text-[11px] text-slate-500 text-center mt-2 font-medium">
-                      Pre-fills our quote form with this exact tinting formula, base paint, and batch volume.
+                      Pre-fills our quote form with &ldquo;{result.targetColorName}&rdquo;, base paint, and exact {result.totalVolumeLitres}L formula.
                     </p>
                   </div>
                 </div>
